@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item, index) of list" :key="item.id">{{item.text + "-"+index}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                        id: "1213123",
+                        text: "hello"
+                    },
+                    {
+                        id: "2321",
+                        text: "my"
+                    },
+                    {
+                        id: "413",
+                        text: "love"
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

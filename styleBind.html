@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>样式绑定</title>
+    <script src="./vue.js"></script>
+    <style>
+        .activated {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="handleDivClick" :class="[activated,activ]">Hello World</div>
+        <div :style="[styleObj,{fontSize:'20px'}]" @click="handleStyleClick">style binding</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activated: "",
+                activ: "activ",
+                styleObj: {
+                    color: "blue",
+                }
+            },
+            methods: {
+                handleDivClick: function () {
+                    if (this.activated == "activated") {
+                        this.activated = "";
+                        return;
+                    }
+                    this.activated = "activated";
+                },
+                handleStyleClick: function () {
+                    this.styleObj.color = this.styleObj.color == "blue" ? "green" : "blue";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
